@@ -1,8 +1,10 @@
+// Configuration for authentication pages and callbacks
 export const authConfig = {
   pages: {
-    signIn: '/login',
+    signIn: '/login', // Custom sign-in page
   },
   callbacks: {
+    // Authorization callback for protected routes
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const isOnDashboard = nextUrl.pathname.startsWith('/ui');
@@ -15,5 +17,5 @@ export const authConfig = {
       return true;
     },
   },
-  providers: [], // Add providers with an empty array for now
+  providers: [], // No providers defined yet
 };
